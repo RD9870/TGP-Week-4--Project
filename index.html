@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="src/output.css" rel="stylesheet" />
+  </head>
+  <body class="pt-24">
+    <div id="app-content">
+      <!-- nav bar -->
+      <div id="nav-bar">
+        <nav
+          class="bg-primary-pink dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-default"
+        >
+          <div
+            class="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4"
+          >
+            <a href="#" class="nav-bar-logo">
+              <img src="./assets/logo.png" class="h-16" alt="SwiftCart Logo" />
+              <span
+                class="self-center text-xl text-heading font-semibold whitespace-nowrap dark:text-white"
+                >SwiftCart</span
+              >
+            </a>
+            <button
+              data-collapse-toggle="navbar-default"
+              type="button"
+              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
+              aria-controls="navbar-default"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="w-6 h-6"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  d="M5 7h14M5 12h14M5 17h14"
+                />
+              </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+              <ul
+                class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary"
+              >
+                <li>
+                  <a href="#" class="current-nav-bar-link" aria-current="page"
+                    >Home</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="nav-bar-link">About</a>
+                </li>
+                <li>
+                  <a href="#" class="nav-bar-link">Services</a>
+                </li>
+                <li>
+                  <a href="#" class="nav-bar-link">Pricing</a>
+                </li>
+                <li>
+                  <a href="#" class="nav-bar-link">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <!-- end of nav bar -->
+      <!-- announcement sliders -->
+      <div id="gallery" class="relative w-full" data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+          <!-- Item 1 -->
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="./assets/1.jpg" class="slider-image" alt="" />
+          </div>
+          <!-- Item 2 -->
+          <div
+            class="hidden duration-700 ease-in-out"
+            data-carousel-item="active"
+          >
+            <img src="./assets/2.jpg" class="slider-image" alt="" />
+          </div>
+          <!-- Item 3 -->
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="./assets/3.jpg" class="slider-image" alt="" />
+          </div>
+        </div>
+        <!-- Slider controls -->
+        <div class="announcements">
+          <button
+            type="button"
+            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-prev
+            onclick="prevSlide()"
+          >
+            <span class="slider-icons">
+              <svg
+                class="w-5 h-5 text-white rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m15 19-7-7 7-7"
+                />
+              </svg>
+              <span class="sr-only">Previous</span>
+            </span>
+          </button>
+          <button
+            type="button"
+            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-next
+            onclick="nextSlide()"
+          >
+            <span class="slider-icons">
+              <svg
+                class="w-5 h-5 text-white rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m9 5 7 7-7 7"
+                />
+              </svg>
+              <span class="sr-only">Next</span>
+            </span>
+          </button>
+        </div>
+      </div>
+      <!-- end of announcement sliders -->
+      <!-- search bar -->
+      <div id="seacrch-bar">
+        <form class="max-w-2xl mx-auto">
+          <div class="flex shadow-xs rounded-base relative">
+            <button
+              id="dropdown-button"
+              data-dropdown-toggle="dropdown"
+              type="button"
+              class="drop-down-btn"
+              onclick="showDropDown()"
+            >
+              <svg
+                class="w-4 h-4 me-1.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 20 9.143V4.857A.857.857 0 0 0 19.143 4Zm-10 10H4.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286A.857.857 0 0 0 9.143 14Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"
+                />
+              </svg>
+              All categories
+              <svg
+                class="w-4 h-4 ms-1.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 9-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              id="dropdown-menu-items"
+              class="z-10 bg-neutral-primary-medium border border-default-medium rounded-base shadow-lg w-44 absolute top-full bg-fuchsia-300 dark:bg-dark-pink scale-y-0"
+            >
+              <!-- populated dynamically -->
+            </div>
+            <input
+              type="search"
+              id="search-box"
+              class="search-box"
+              placeholder="Search for products"
+              required
+            />
+            <button
+              type="button"
+              id="searchBtn"
+              class="search-btn"
+              onclick="searchForProduct()"
+            >
+              <svg
+                class="w-4 h-4 me-1.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+                />
+              </svg>
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- end of search bar -->
+      <!-- card gallery -->
+      <div id="card-gallery">
+        <div class="grid grid-cols-3 gap-4 p-4 md:grid-cols-4 md:p-8">
+          <!-- filled in using a template -->
+        </div>
+      </div>
+
+      <!--end of card gallery -->
+      <!-- footer -->
+      <div id="footer">
+        <footer class="dark:bg-gray-900 bg-primary-pink">
+          <div class="mx-auto w-full max-w-7xl p-4 py-6 lg:py-8">
+            <div class="md:flex md:justify-between">
+              <div class="mb-6 md:mb-0">
+                <a href="#" class="nav-bar-logo">
+                  <img
+                    src="./assets/logo.png"
+                    class="h-16"
+                    alt="SwiftCart Logo"
+                  />
+                  <span
+                    class="text-heading self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+                    >SwiftCart</span
+                  >
+                </a>
+              </div>
+              <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                <div>
+                  <h2 class="footer-header">customer service</h2>
+                  <ul class="footer-list">
+                    <li>
+                      <span>email us</span>
+                    </li>
+                    <li>
+                      <span>call us</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h2 class="footer-header">Brands</h2>
+                  <ul class="footer-list">
+                    <li>
+                      <span>Clothes</span>
+                    </li>
+                    <li>
+                      <span>electronics</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h2 class="footer-header">Legal</h2>
+                  <ul class="footer-list">
+                    <li>
+                      <span>terms of service</span>
+                    </li>
+                    <li>
+                      <span>privacy policy</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <hr class="my-6 border-default sm:mx-auto lg:my-8" />
+            <div class="sm:flex sm:items-center sm:justify-between">
+              <span class="text-sm text-body sm:text-center dark:text-white"
+                >© 2025
+                <a href="https://flowbite.com/" class="hover:underline">RFD</a>.
+                All Rights Reserved.
+              </span>
+              <div class="flex mt-4 sm:justify-center sm:mt-0">
+                <a href="#" class="footer-icon">
+                  <svg
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span class="sr-only">Facebook page</span>
+                </a>
+                <a href="#" class="footer-icon">
+                  <svg
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M18.942 5.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.586 11.586 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3 17.392 17.392 0 0 0-2.868 11.662 15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.638 10.638 0 0 1-1.706-.83c.143-.106.283-.217.418-.331a11.664 11.664 0 0 0 10.118 0c.137.114.277.225.418.331-.544.328-1.116.606-1.71.832a12.58 12.58 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM8.678 14.813a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.929 1.929 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"
+                    />
+                  </svg>
+                  <span class="sr-only">Discord community</span>
+                </a>
+                <a href="#" class="footer-icon">
+                  <svg
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z"
+                    />
+                  </svg>
+                  <span class="sr-only">Twitter page</span>
+                </a>
+                <a href="#" class="footer-icon">
+                  <svg
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span class="sr-only">GitHub account</span>
+                </a>
+                <a href="#" class="footer-icon">
+                  <svg
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12 2a10 10 0 1 0 10 10A10.009 10.009 0 0 0 12 2Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.093 20.093 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM10 3.707a8.82 8.82 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.755 45.755 0 0 0 10 3.707Zm-6.358 6.555a8.57 8.57 0 0 1 4.73-5.981 53.99 53.99 0 0 1 3.168 4.941 32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.641 31.641 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM12 20.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 15.113 13a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span class="sr-only">Dribbble account</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <!-- end of footer -->
+    </div>
+
+    <!-- templates for cards -->
+    <!-- product card -->
+    <template id="product-card-template">
+      <div class="card">
+        <img
+          class="card-image"
+          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
+          alt=""
+        />
+        <div class="card-content">
+          <h3 class="card-header">name</h3>
+          <div class="flex items-center">
+            <svg
+              class="text-yellow-500 h-5 w-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+              />
+            </svg>
+            <p class="prod-rating">4.95</p>
+            <span
+              class="bg-neutral-quaternary mx-1.5 h-1 w-1 rounded-full"
+            ></span>
+            <a href="#" class="prod-reviews">73 reviews</a>
+          </div>
+          <p class="card-desc">ipsume jscsdkjsdjfdslkfsdj</p>
+          <div class="card-bottom">
+            <p class="card-price">$$$</p>
+            <button class="card-btn">See More</button>
+          </div>
+        </div>
+      </div>
+    </template>
+    <!-- skeleton card -->
+    <template id="card-skeleton-template">
+      <div role="status" class="skelCard">
+        <div
+          role="status"
+          class="bg-neutral-quaternary rounded-base flex h-48 max-w-sm animate-pulse items-center justify-center sm:mb-6"
+        >
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <rect
+              width="24"
+              height="24"
+              stroke="none"
+              fill="#000000"
+              opacity="0"
+            />
+            <g transform="matrix(0.43 0 0 0.43 12 12)">
+              <path
+                style="
+                  stroke: none;
+                  stroke-width: 1;
+                  stroke-dasharray: none;
+                  stroke-linecap: butt;
+                  stroke-dashoffset: 0;
+                  stroke-linejoin: miter;
+                  stroke-miterlimit: 4;
+                  fill: rgb(0, 0, 0);
+                  fill-rule: nonzero;
+                  opacity: 1;
+                "
+                transform=" translate(-25, -25)"
+                d="M 7 2 L 7 48 L 43 48 L 43 15.414063 L 29.410156 2 Z M 9 4 L 28 4 L 28 17 L 41 17 L 41 46 L 9 46 Z M 30 5.390625 L 39.734375 15 L 30 15 Z M 33.5 21.332031 C 32.457031 21.335938 31.609375 22.15625 31.609375 23.167969 C 31.613281 24.179688 32.457031 25 33.5 25 C 34.542969 25 35.386719 24.179688 35.390625 23.167969 C 35.390625 22.15625 34.542969 21.335938 33.5 21.332031 Z M 21.167969 24 C 20.835938 23.988281 20.519531 24.136719 20.324219 24.40625 L 12.863281 34.488281 C 12.640625 34.792969 12.605469 35.195313 12.773438 35.53125 C 12.945313 35.871094 13.289063 36.082031 13.667969 36.082031 L 28.425781 36.082031 C 28.449219 36.082031 28.472656 36.082031 28.496094 36.082031 C 28.5 36.082031 28.5 36.082031 28.503906 36.082031 L 35.015625 36 C 35.398438 35.996094 35.742188 35.769531 35.90625 35.421875 C 36.066406 35.074219 36.015625 34.667969 35.777344 34.371094 L 29.269531 26.386719 C 29.078125 26.148438 28.785156 26.011719 28.480469 26.015625 C 28.164063 26.023438 27.871094 26.175781 27.6875 26.429688 L 25.554688 29.363281 L 21.9375 24.410156 C 21.753906 24.164063 21.472656 24.011719 21.167969 24 Z M 21.125 26.6875 L 24.753906 31.660156 C 24.757813 31.667969 24.761719 31.671875 24.765625 31.675781 L 26.523438 34.082031 L 15.652344 34.082031 Z M 28.539063 28.65625 L 32.917969 34.027344 L 29 34.078125 L 26.796875 31.0625 Z"
+                stroke-linecap="round"
+              />
+            </g>
+          </svg>
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="flex flex-col justify-center">
+          <div
+            class="mb-4 flex h-2.5 w-40 self-center rounded-full bg-gray-500"
+          ></div>
+          <div
+            class="mb-4 flex h-2.5 w-24 self-center rounded-full bg-gray-500"
+          ></div>
+          <div class="mb-2.5 h-2 rounded-full bg-gray-500"></div>
+          <div class="mb-2.5 h-2 rounded-full bg-gray-500"></div>
+          <div class="h-2 rounded-full bg-gray-500"></div>
+        </div>
+        <div class="mt-4 flex w-full items-center justify-between">
+          <p class="font-bold text-gray-500">$$$</p>
+          <div class="h-8 w-16 rounded-full bg-gray-500"></div>
+        </div>
+        <span class="sr-only">Loading...</span>
+      </div>
+    </template>
+    <!-- end of templates -->
+    <script src="./src/script.js"></script>
+  </body>
+</html>

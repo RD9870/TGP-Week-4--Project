@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-pink: #fec5c9;
+  --color-secondary-pink: #fe929e;
+  --color-dark-pink: #e36f7c;
+  --color-dark-body: #818593;
+  --color-darker-pink: #da5469;
+
+  /* --color-
+  --color-
+  --color- */
+}
+
+@layer components {
+  .nav-bar-logo {
+    @apply flex items-center space-x-3 rtl:space-x-reverse;
+  }
+
+  .current-nav-bar-link {
+    @apply block py-2 px-3 rounded md:bg-transparent md:p-0 text-white dark:text-secondary-pink;
+  }
+
+  .nav-bar-link {
+    @apply block py-2 px-3 rounded md:hover:bg-transparent md:border-0 md:p-0 md:dark:hover:bg-transparent text-black dark:text-white;
+  }
+
+  .announcements {
+    @apply my-4;
+  }
+
+  .slider-image {
+    @apply absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2;
+  }
+
+  .slider-image-animation {
+    @apply hidden duration-700 ease-in-out;
+  }
+
+  .slider-icons {
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 hover:bg-white/50 dark:hover:bg-gray-800/60 focus:ring-4 focus:ring-white dark:focus:ring-gray-800/70 focus:outline-none;
+  }
+
+  .drop-down-item {
+    @apply block p-2 rounded-md hover:bg-pink-100 capitalize;
+  }
+
+  .search-box {
+    @apply px-3 mx-1.5  py-2.5 border text-sm block w-full bg-gray-200 dark:bg-gray-500 border-gray-200 placeholder-gray-600  dark:placeholder-white text-white focus:ring-pink-500;
+  }
+
+  .search-btn {
+    @apply inline-flex items-center text-secondary-pink bg-white dark:bg-dark-pink dark:focus:ring-pink-400 dark:text-black box-border border border-primary-pink shadow-xs font-medium leading-5 text-sm px-4 py-2.5 focus:outline-none;
+  }
+
+  .drop-down-btn {
+    @apply inline-flex items-center shrink-0 z-10  box-border border  focus:ring-1 dark:focus:ring-pink-400 font-medium leading-5 text-sm px-4 py-2.5 focus:outline-none dark:bg-darker-pink;
+  }
+
+  .footer-header {
+    @apply mb-6 text-sm font-semibold uppercase dark:text-white;
+  }
+
+  .footer-list {
+    @apply font-medium mb-4 dark:text-white capitalize;
+  }
+
+  .footer-icon {
+    @apply ms-5 dark:text-white;
+  }
+
+  .card {
+    @apply rounded-lg bg-fuchsia-50 dark:bg-gray-300 p-4;
+  }
+
+  .card-image {
+    @apply h-[178px] max-w-full object-contain mx-auto rounded-md;
+  }
+
+  .card-content {
+    @apply flex flex-col items-center gap-4 text-center;
+  }
+
+  .card-header {
+    @apply capitalize;
+  }
+  .card-btn {
+    @apply rounded-lg bg-pink-400 p-2.5;
+  }
+  .card-btn-sec {
+    @apply rounded-lg bg-pink-100 p-2.5;
+  }
+  .card-bottom {
+    @apply flex w-full flex-row items-center justify-between;
+  }
+
+  .prod-rating {
+    @apply ms-2 text-sm font-bold;
+  }
+
+  .prod-reviews {
+    @apply text-sm font-medium underline hover:no-underline;
+  }
+
+  .card-desc {
+    @apply font-thin line-clamp-3 w-full;
+  }
+
+  .card-price {
+    @apply font-light;
+  }
+
+  .skelCard {
+    @apply border-2 rounded-lg max-w-sm animate-pulse  p-4 shadow-xs md:p-6;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      @apply bg-dark-body;
+    }
+    /* 
+    .search-box {
+      @apply bg-gray-400 border-gray-200 placeholder-gray-600 text-white focus:ring-pink-500;
+    } */
+  }
+}
