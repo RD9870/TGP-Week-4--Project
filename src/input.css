@@ -46,7 +46,7 @@
   }
 
   .search-box {
-    @apply px-1.5 mx-1.5  py-2.5 border text-sm block w-full bg-gray-200 dark:bg-gray-500 border-gray-200 placeholder-gray-600  dark:placeholder-white text-white focus:ring-pink-500;
+    @apply shrink-0 px-3  py-2.5 border text-sm block w-3/4 bg-gray-200 dark:bg-gray-500 border-gray-200 placeholder-gray-600  dark:placeholder-white text-white focus:ring-pink-500;
   }
 
   .search-btn {
