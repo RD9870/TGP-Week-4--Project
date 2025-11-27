@@ -28,6 +28,7 @@
               class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
               aria-controls="navbar-default"
               aria-expanded="false"
+              onclick="openNavMenu()"
             >
               <span class="sr-only">Open main menu</span>
               <svg
@@ -98,7 +99,7 @@
         <div class="announcements">
           <button
             type="button"
-            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            class="absolute top-0 start-0 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
             data-carousel-prev
             onclick="prevSlide()"
           >
@@ -125,7 +126,7 @@
           </button>
           <button
             type="button"
-            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            class="absolute top-0 end-0 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
             data-carousel-next
             onclick="nextSlide()"
           >

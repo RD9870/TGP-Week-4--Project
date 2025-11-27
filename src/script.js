@@ -277,13 +277,16 @@ function searchForProduct() {
 }
 
 //show more info pop up
-// h-[178px] max-w-full object-contain mx-auto rounded-md
 function showPopUp(prodId) {
+  //find product in array
   const product = products.find((ele) => {
     return ele.id == prodId;
   });
+  // create a mew div for the popup body
   let popupBody = document.createElement("div");
+  //give it an id
   popupBody.id = "popUp";
+  //add details
   popupBody.innerHTML = `
   <div class="
   fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
@@ -299,38 +302,52 @@ function showPopUp(prodId) {
       alt=""
     />
   </div>
-
-  <!-- CONTENT -->
   <div class="mt-4 space-y-3">
     <h3 class="text-lg font-semibold">${product.title}</h3>
     <p class="text-sm">${product.description}</p>
     <p class="text-xl font-bold">${product.price}$</p>
-
     <div class="flex justify-end space-x-2 pt-2">
       <button class="px-4 py-2 bg-gray-300 rounded" onclick="closePopUp()" >Close</button>
       <button class="px-4 py-2 bg-pink-500 text-white rounded" onclick="addToCart()">Add to cart</button>
     </div>
   </div>
-</div> 
-
-      `;
+</div> `;
+  //make body unresponsive to stop user from clickoing other products while pop up is open
   document.body.classList.add("overflow-hidden", "h-full");
   document.getElementById("app-content").setAttribute("inert", "true");
+  //add the pop up to body
   document.body.appendChild(popupBody);
   console.log(`get prod #${prodId}`);
 }
 
+//close more info pop up
 function closePopUp() {
+  //find the pop up element
   const popUpWin = document.getElementById("popUp");
+  //make body respnsive again
   document.body.classList.remove("overflow-hidden", "h-full");
   document.getElementById("app-content").removeAttribute("inert");
+  //remove the popup
   document.body.removeChild(popUpWin);
-
   console.log("closed!");
 }
 
+//show user an added to cart alert
 function addToCart() {
   closePopUp();
   alert("Product Added to cart, Thank you for shopping with us!");
   console.log("added!");
+}
+
+//open nav bar menue on phone
+function openNavMenu() {
+  //find the list
+  const lis = document.getElementById("navbar-default");
+  //togle on if it's off
+  if (lis.classList.contains("hidden")) {
+    lis.classList.remove("hidden");
+  } else {
+    //togle off if it's on
+    lis.classList.add("hidden");
+  }
 }
