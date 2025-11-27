@@ -146,6 +146,10 @@ function fetchThisCat(cat) {
     //return product that have the desired category
     return ele.category.toLowerCase() == cat;
   });
+  //get the dropdown menue element
+  const drobDownBtn = document.getElementById("dropdown-button");
+  //change the drop down text to match selected cat
+  drobDownBtn.querySelector("span").textContent = cat;
   //shpw user the ffiltered list
   fillProdCards(filteredProdList);
 }
